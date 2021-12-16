@@ -1,3 +1,9 @@
+/*
+mongoimport --db my_db --collection area --file area.json
+mongoimport --db my_db --collection by_month --file by_month.json
+mongoimport --db my_db --collection by_road_type --file by_road_type.json
+mongoimport --db my_db --collection by_type --file by_type.json
+*/
 db.area.count()
 db.area.find()
 
@@ -82,6 +88,10 @@ db.by_month.find(
     {city_or_province:"서울", "month_data.accident_count":{$gte:200}},
     {"month_data.$":1, county:1 }
 )
+/*
+mongoimport --db my_db --collection local --file local.json
+mongoimport --db my_db --collection city_or_province --file city_or_province.json
+*/
 
 //1. area : 광역시도별 건수 - $group, $sort
 db.area.find()
